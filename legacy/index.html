@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Muhammad Daffa Alfiannoor - Data Scientist & ML Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --teal: #006B5F;
+    --navy: #182442;
+    --navy-dark: #0D1A38;
+    --ink: #1C1B1B;
+    --text: #45464E;
+    --muted: #6B7280;
+    --bg: #FCF9F8;
+    --card: #FFFFFF;
+    --tag-bg: #DAE2FF;
+    --border: #C6C6CE;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { text-decoration: none; color: inherit; }
+  ul { list-style: none; }
+  img { display: block; max-width: 100%; }
+
+  .container { max-width: 1228px; margin: 0 auto; padding: 0 24px; }
+
+  .section-title {
+    font-size: 40px;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.2;
+    letter-spacing: -0.5px;
+  }
+
+  .section-subtitle {
+    font-size: 17px;
+    color: var(--text);
+    max-width: 560px;
+    margin: 14px auto 0;
+  }
+
+  .centered { text-align: center; }
+  .centered .section-subtitle { margin-left: auto; margin-right: auto; }
+
+  .btn {
+    display: inline-block;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 13px 30px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: opacity .2s ease, transform .2s ease, background .2s ease;
+  }
+
+  .btn:hover { opacity: .88; transform: translateY(-1px); }
+
+  .btn-dark { background: var(--navy); color: #fff; }
+  .btn-teal { background: var(--teal); color: #fff; }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--navy);
+    border: 1.5px solid var(--navy);
+  }
+
+  /* ===== Header ===== */
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    background: rgba(252, 249, 248, 0.82);
+    border-bottom: 1px solid rgba(198, 198, 206, 0.35);
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 84px;
+  }
+
+  .logo {
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--navy);
+    letter-spacing: -1px;
+  }
+  .logo span { color: var(--teal); }
+
+  .nav ul { display: flex; gap: 34px; }
+
+  .nav a {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text);
+    transition: color .2s ease;
+  }
+  .nav a:hover { color: var(--navy); }
+
+  .header .btn-dark { padding: 11px 24px; font-size: 14px; }
+
+  .menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+  }
+  .menu-toggle span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--navy);
+    margin: 5px 0;
+    border-radius: 2px;
+  }
+
+  /* ===== Hero ===== */
+  .hero {
+    background: var(--bg);
+    padding: 140px 0 170px;
+    text-align: center;
+  }
+
+  .hero h1 {
+    font-size: 56px;
+    font-weight: 800;
+    color: var(--navy);
+    line-height: 1.18;
+    letter-spacing: -1.5px;
+    max-width: 860px;
+    margin: 0 auto;
+  }
+
+  .hero .role {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--teal);
+    margin-top: 26px;
+    letter-spacing: -0.3px;
+  }
+
+  .hero p {
+    font-size: 18px;
+    color: var(--text);
+    max-width: 640px;
+    margin: 24px auto 0;
+  }
+
+  .hero .btn { margin-top: 46px; padding: 15px 36px; font-size: 17px; }
+
+  /* ===== About ===== */
+  .about {
+    background: var(--card);
+    padding: 130px 0 120px;
+  }
+
+  .about .section-subtitle {
+    max-width: 760px;
+    font-size: 17px;
+    margin-top: 34px;
+  }
+  .about .section-subtitle + .section-subtitle { margin-top: 18px; }
+
+  /* ===== Skills ===== */
+  .skills-section { background: var(--bg); padding: 130px 0 120px; }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+    margin-top: 64px;
+  }
+
+  .skill-card {
+    background: var(--card);
+    border: 1px solid rgba(198, 198, 206, 0.25);
+    border-radius: 12px;
+    padding: 34px 28px;
+    transition: transform .25s ease, box-shadow .25s ease;
+  }
+
+  .skill-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 16px 40px rgba(24, 36, 66, 0.08);
+  }
+
+  .skill-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 12px;
+    background: rgba(0, 107, 95, 0.09);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  .skill-icon svg { width: 26px; height: 26px; stroke: var(--teal); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+  .skill-card h3 { font-size: 19px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+  .skill-card p { font-size: 14.5px; color: var(--text); line-height: 1.55; }
+
+  /* ===== Projects ===== */
+  .projects { background: var(--card); padding: 130px 0 120px; }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    margin-top: 64px;
+  }
+
+  .project-card {
+    background: var(--card);
+    border: 1px solid rgba(198, 198, 206, 0.25);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform .25s ease, box-shadow .25s ease;
+  }
+
+  .project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 44px rgba(24, 36, 66, 0.09);
+  }
+
+  .project-thumb {
+    position: relative;
+    aspect-ratio: 387 / 218;
+    background: #E5E2E1;
+    overflow: hidden;
+  }
+
+  .project-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .project-thumb .thumb-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(24, 36, 66, 0.35);
+    opacity: 0;
+    transition: opacity .25s ease;
+  }
+  .project-card:hover .thumb-overlay { opacity: 1; }
+
+  .project-thumb .thumb-overlay .btn { font-size: 14px; padding: 10px 22px; }
+
+  .project-thumb .coming-soon {
+    position: absolute;
+    inset: 0;
+    background: var(--bg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+  }
+  .project-thumb .coming-soon span {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--navy);
+  }
+  .project-thumb .coming-soon .pill {
+    background: var(--navy);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 9px 22px;
+    border-radius: 18px;
+  }
+
+  .project-body { padding: 26px 24px 30px; }
+
+  .project-body h3 {
+    font-size: 21px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 10px;
+    line-height: 1.3;
+  }
+
+  .project-body > p {
+    font-size: 14.5px;
+    color: var(--text);
+    line-height: 1.6;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 18px 0 20px;
+  }
+
+  .tag {
+    background: var(--tag-bg);
+    color: var(--navy-dark);
+    font-size: 12.5px;
+    font-weight: 600;
+    padding: 5px 12px;
+    border-radius: 12px;
+    white-space: nowrap;
+  }
+
+  .view-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--teal);
+    transition: gap .2s ease;
+  }
+  .view-link:hover { gap: 11px; }
+  .view-link svg { width: 17px; height: 17px; }
+
+  /* ===== Journey ===== */
+  .journey { background: var(--bg); padding: 130px 0 120px; }
+
+  .journey-list { max-width: 768px; margin: 64px auto 0; display: flex; flex-direction: column; gap: 24px; }
+
+  .journey-card {
+    background: var(--card);
+    border: 1px solid rgba(198, 198, 206, 0.25);
+    border-radius: 8px;
+    padding: 34px 40px;
+    position: relative;
+  }
+
+  .journey-card .eyebrow {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: var(--teal);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  .journey-card h3 { font-size: 22px; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
+
+  .journey-card .org { font-size: 15px; font-weight: 500; color: var(--muted); }
+
+  .journey-card p { font-size: 15px; color: var(--text); margin-top: 12px; line-height: 1.65; }
+
+  .journey-card .bullet {
+    position: absolute;
+    left: -8px;
+    top: 40px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--teal);
+    border: 3px solid var(--bg);
+  }
+
+  .journey-card.compact .eyebrow { margin-bottom: 8px; }
+  .journey-card.compact h3 { font-size: 20px; }
+
+  /* ===== Contact ===== */
+  .contact { background: var(--bg); padding: 130px 0 120px; }
+
+  .contact-heading { text-align: center; margin-bottom: 64px; }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: start;
+  }
+
+  .contact-info { display: flex; flex-direction: column; gap: 24px; }
+
+  .contact-line {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: var(--card);
+    border: 1px solid rgba(198, 198, 206, 0.25);
+    border-radius: 12px;
+    padding: 22px 24px;
+    transition: transform .25s ease, box-shadow .25s ease;
+  }
+  .contact-line:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 34px rgba(24, 36, 66, 0.08);
+  }
+
+  .contact-icon {
+    width: 46px;
+    height: 46px;
+    border-radius: 12px;
+    background: rgba(24, 36, 66, 0.06);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .contact-icon svg { width: 21px; height: 21px; fill: none; stroke: var(--navy); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+
+  .contact-line .label { font-size: 15px; font-weight: 600; color: var(--navy); }
+  .contact-line .value { font-size: 14.5px; color: var(--text); word-break: break-all; }
+
+  .contact-form {
+    background: var(--card);
+    border: 1px solid rgba(198, 198, 206, 0.25);
+    border-radius: 12px;
+    padding: 40px 38px;
+    box-shadow: 0 24px 60px rgba(24, 36, 66, 0.06);
+  }
+
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px; }
+
+  .form-group { display: flex; flex-direction: column; gap: 8px; margin-bottom: 20px; }
+  .form-row .form-group { margin-bottom: 0; }
+
+  .form-group label { font-size: 14px; font-weight: 600; color: var(--navy); }
+
+  .form-group input,
+  .form-group textarea {
+    font-family: inherit;
+    font-size: 15px;
+    color: var(--navy);
+    background: var(--bg);
+    border: 1px solid rgba(198, 198, 206, 0.5);
+    border-radius: 8px;
+    padding: 14px 16px;
+    outline: none;
+    transition: border-color .2s ease, box-shadow .2s ease;
+  }
+
+  .form-group input::placeholder,
+  .form-group textarea::placeholder { color: #9CA3AF; }
+
+  .form-group input:focus,
+  .form-group textarea:focus {
+    border-color: var(--teal);
+    box-shadow: 0 0 0 3px rgba(0, 107, 95, 0.12);
+  }
+
+  .form-group textarea { resize: vertical; min-height: 150px; }
+
+  .contact-form .btn { width: 100%; margin-top: 8px; padding: 15px; font-size: 16px; }
+
+  /* ===== Footer ===== */
+  .footer { background: var(--bg); padding: 48px 0; border-top: 1px solid rgba(198, 198, 206, 0.35); }
+
+  .footer-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  .footer-copy { font-size: 14px; color: var(--muted); display: flex; align-items: center; gap: 10px; }
+  .footer-copy .logo { font-size: 19px; }
+
+  .footer-links { display: flex; gap: 28px; }
+  .footer-links a { font-size: 14px; font-weight: 500; color: var(--text); transition: color .2s ease; }
+  .footer-links a:hover { color: var(--teal); }
+
+  /* ===== Responsive ===== */
+  @media (max-width: 1024px) {
+    .skills-grid { grid-template-columns: repeat(2, 1fr); }
+    .projects-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 768px) {
+    .nav { display: none; }
+    .menu-toggle { display: block; }
+
+    .hero h1 { font-size: 38px; }
+    .hero .role { font-size: 19px; }
+    .hero { padding: 90px 0 110px; }
+
+    .section-title { font-size: 30px; }
+    .about, .skills-section, .projects, .journey, .contact { padding: 90px 0 80px; }
+
+    .skills-grid, .projects-grid { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+    .form-row { grid-template-columns: 1fr; }
+    .journey-card { padding: 26px 24px; }
+  }
+
+  @media (max-width: 480px) {
+    .hero h1 { font-size: 32px; }
+    .footer-inner { justify-content: center; text-align: center; }
+    .footer-links { flex-wrap: wrap; justify-content: center; gap: 16px; }
+  }
+</style>
+</head>
+<body>
+
+  <!-- ================= Header ================= -->
+  <header class="header">
+    <div class="container header-inner">
+      <a href="#" class="logo">AL<span>.</span></a>
+      <nav class="nav">
+        <ul>
+          <li><a href="#work">Work</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <a href="#contact" class="btn btn-dark">Hire Me</a>
+      <button class="menu-toggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ================= Hero ================= -->
+  <section class="hero" id="home">
+    <div class="container">
+      <h1>Hi, I'm Muhammad Daffa<br>Alfiannoor.</h1>
+      <p class="role">Data Science and Machine Learning</p>
+      <p>Transforming complex data into actionable insights. Leveraging statistical rigor and machine learning to build intelligent systems that solve real-world problems.</p>
+      <a href="#work" class="btn btn-dark">View My Project</a>
+    </div>
+  </section>
+
+  <!-- ================= About ================= -->
+  <section class="about" id="about">
+    <div class="container centered">
+      <h2 class="section-title">About Me</h2>
+      <p class="section-subtitle">I am a Data Scientist and Machine Learning Engineer dedicated to building end-to-end systems that transform raw data into actionable intelligence. My focus is on developing models that are not only high-performing but also reliable, interpretable, and ready for real-world deployment.</p>
+      <p class="section-subtitle">With experience spanning health risk prediction to NLP-based analysis, I bridge the gap between complex predictive modeling and usable software. I specialize in the full lifecycle of ML development, ensuring every solution is grounded in statistical rigor and engineered for practical impact.</p>
+    </div>
+  </section>
+
+  <!-- ================= Skills ================= -->
+  <section class="skills-section" id="skills">
+    <div class="container centered">
+      <h2 class="section-title">Technical Expertise</h2>
+      <p class="section-subtitle">A specialized toolkit for extracting insights and building intelligent models.</p>
+
+      <div class="skills-grid">
+        <div class="skill-card">
+          <div class="skill-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 3l9 5v8l-9 5-9-5V8l9-5z"/><path d="M12 8v8M8 10v4M16 10v4"/></svg>
+          </div>
+          <h3>Python</h3>
+          <p>Primary language for data analysis and ML.</p>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon">
+            <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M9 4v16"/></svg>
+          </div>
+          <h3>Pandas/NumPy</h3>
+          <p>Efficient data manipulation and numerical computing.</p>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon">
+            <svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg>
+          </div>
+          <h3>SQL</h3>
+          <p>Querying and managing large-scale datasets.</p>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon">
+            <svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>
+          </div>
+          <h3>Data Visualization</h3>
+          <p>Matplotlib, Seaborn, and Tableau for storytelling.</p>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="2"/><circle cx="5" cy="17" r="2"/><circle cx="19" cy="17" r="2"/><circle cx="12" cy="12" r="2"/><path d="M12 7v3M7 16l3-2M17 16l-3-2"/></svg>
+          </div>
+          <h3>TensorFlow/PyTorch</h3>
+          <p>Building and training deep learning models.</p>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon">
+            <svg viewBox="0 0 24 24"><path d="M4 4h16v5H4zM4 13h16v7H4z"/><path d="M8 6.5h.01M8 15.5h.01"/></svg>
+          </div>
+          <h3>Big Data</h3>
+          <p>Working with Spark and cloud-based data warehouses.</p>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 100 18 9 9 0 000-18z"/><path d="M12 8v4M12 16h.01"/></svg>
+          </div>
+          <h3>Scikit-learn</h3>
+          <p>Classic machine learning algorithms and preprocessing.</p>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon">
+            <svg viewBox="0 0 24 24"><path d="M18 8a6 6 0 00-12 0M6 8c0 7-3 8-3 8h18s-3-1-3-8M12 16v4"/></svg>
+          </div>
+          <h3>Statistics</h3>
+          <p>Foundation of data science and hypothesis testing.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= Projects ================= -->
+  <section class="projects" id="work">
+    <div class="container centered">
+      <h2 class="section-title">Project</h2>
+      <p class="section-subtitle">A showcase of recent projects blending robust engineering with refined design.</p>
+
+      <div class="projects-grid">
+        <!-- VitaCheck -->
+        <article class="project-card">
+          <div class="project-thumb">
+            <img src="images/project-vitacheck.png" alt="VitaCheck app preview">
+            <div class="thumb-overlay">
+              <a href="#contact" class="btn btn-dark">View Case Study</a>
+            </div>
+          </div>
+          <div class="project-body">
+            <h3>VitaCheck</h3>
+            <p>Lack of accessible, initial health screening tools for remote patients.</p>
+            <div class="tags">
+              <span class="tag">React</span>
+              <span class="tag">Tailwind</span>
+              <span class="tag">Matplotlib &amp; Seaborn</span>
+              <span class="tag">Logistic Regression</span>
+              <span class="tag">SVM</span>
+            </div>
+            <a class="view-link" href="#contact">
+              View Case Study
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- RumahKarir -->
+        <article class="project-card">
+          <div class="project-thumb">
+            <img src="images/project-rumahkarir.jpg" alt="RumahKarir app preview">
+            <div class="thumb-overlay">
+              <a href="#contact" class="btn btn-dark">View Case Study</a>
+            </div>
+          </div>
+          <div class="project-body">
+            <h3>RumahKarir</h3>
+            <p>Identifying Competency Gaps and Personalizing Career Development Plans.</p>
+            <div class="tags">
+              <span class="tag">Python</span>
+              <span class="tag">React</span>
+              <span class="tag">NLP</span>
+              <span class="tag">NER</span>
+              <span class="tag">Pandas &amp; NumPy</span>
+              <span class="tag">Matplotlib &amp; Seaborn</span>
+            </div>
+            <a class="view-link" href="#contact">
+              View Case Study
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- Predictive Lead Scoring -->
+        <article class="project-card">
+          <div class="project-thumb">
+            <img src="images/project-lead-scoring.jpg" alt="Predictive Lead Scoring dashboard preview">
+            <div class="thumb-overlay">
+              <a href="#contact" class="btn btn-dark">View Case Study</a>
+            </div>
+          </div>
+          <div class="project-body">
+            <h3>Predictive Lead Scoring Portal for Banking Sales</h3>
+            <p>Predicts the conversion potential of prospective customers (leads). The system analyzes various customer data and then generates a lead score that indicates the likelihood of a prospective customer becoming a customer.</p>
+            <div class="tags">
+              <span class="tag">Classification</span>
+              <span class="tag">Docker</span>
+              <span class="tag">Pandas</span>
+              <span class="tag">NumPy</span>
+              <span class="tag">Scikit-learn</span>
+              <span class="tag">Matplotlib</span>
+              <span class="tag">Seaborn</span>
+              <span class="tag">MySQL/PostgreSQL</span>
+              <span class="tag">Plotly</span>
+            </div>
+            <a class="view-link" href="#contact">
+              View Case Study
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- E-Commerce Data Analysis -->
+        <article class="project-card">
+          <div class="project-thumb">
+            <img src="images/project-ecommerce.png" alt="E-Commerce data analysis preview">
+            <div class="thumb-overlay">
+              <a href="#contact" class="btn btn-dark">View Case Study</a>
+            </div>
+          </div>
+          <div class="project-body">
+            <h3>E-Commerce Data Analysis</h3>
+            <p>Conduct e-commerce data analysis and visualization to identify sales trends and customer behavior.</p>
+            <div class="tags">
+              <span class="tag">Pandas</span>
+              <span class="tag">NumPy</span>
+              <span class="tag">Matplotlib</span>
+              <span class="tag">Seaborn</span>
+              <span class="tag">Data Cleaning</span>
+              <span class="tag">Exploratory Data Analysis (EDA)</span>
+              <span class="tag">Data Visualization</span>
+            </div>
+            <a class="view-link" href="#contact">
+              View Case Study
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- Sentiment Analysis Shopee -->
+        <article class="project-card">
+          <div class="project-thumb">
+            <img src="images/project-shopee.png" alt="Sentiment analysis on Shopee app preview">
+            <div class="thumb-overlay">
+              <a href="#contact" class="btn btn-dark">View Case Study</a>
+            </div>
+          </div>
+          <div class="project-body">
+            <h3>Sentiment Analysis on the Shopee App</h3>
+            <p>Automated positive/negative sentiment classification of Shopee app reviews from Google Play Store using NLP and machine learning.</p>
+            <div class="tags">
+              <span class="tag">Matplotlib</span>
+              <span class="tag">Pandas</span>
+              <span class="tag">Seaborn</span>
+              <span class="tag">NumPy</span>
+              <span class="tag">Scikit-learn</span>
+              <span class="tag">Sastrawi</span>
+              <span class="tag">Wordcloud</span>
+              <span class="tag">NLTK</span>
+            </div>
+            <a class="view-link" href="#contact">
+              View Case Study
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- Coming Soon -->
+        <article class="project-card">
+          <div class="project-thumb">
+            <div class="coming-soon">
+              <span>Coming Soon</span>
+              <span class="pill">Coming Soon</span>
+            </div>
+          </div>
+          <div class="project-body">
+            <h3>Coming Soon</h3>
+            <p>A new project is in the works. Stay tuned for updates on this exciting mental health and wellness initiative.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= Journey ================= -->
+  <section class="journey" id="experience">
+    <div class="container centered">
+      <h2 class="section-title">Journey</h2>
+      <p class="section-subtitle">My professional experience and educational background.</p>
+
+      <div class="journey-list">
+        <div class="journey-card compact">
+          <div class="bullet"></div>
+          <div class="eyebrow">Education</div>
+          <div class="eyebrow" style="text-transform:none; letter-spacing:0; font-size:14px; color:var(--muted); font-weight:600;">2023 - PRESENT</div>
+          <h3>S1 Informatics Engineering</h3>
+          <div class="org">Gunadarma University</div>
+        </div>
+
+        <div class="journey-card">
+          <div class="bullet"></div>
+          <div class="eyebrow">Professional Experience</div>
+          <div class="eyebrow" style="text-transform:none; letter-spacing:0; font-size:14px; color:var(--muted); font-weight:600;">SEP 25 - JAN 26</div>
+          <h3>Machine Learning Cohort</h3>
+          <div class="org">Coding Camp powered by DBS Foundation</div>
+          <p>Gained hands-on experience in data preprocessing, exploratory data analysis, feature engineering, model building, model evaluation, and data visualization using Python and related data science libraries.</p>
+        </div>
+
+        <div class="journey-card">
+          <div class="bullet"></div>
+          <div class="eyebrow">Professional Experience</div>
+          <div class="eyebrow" style="text-transform:none; letter-spacing:0; font-size:14px; color:var(--muted); font-weight:600;">JAN 26 - JUL 26</div>
+          <h3>Data Scientist Cohort</h3>
+          <div class="org">Tech Solutions Inc.</div>
+          <p>Leading the frontend development of complex data visualization dashboards and maintaining the core design system across multiple product lines.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= Contact ================= -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="contact-heading">
+        <h2 class="section-title">Let's Connect</h2>
+        <p class="section-subtitle">I'm currently open for new opportunities. Whether you have a question or just want to say hi, I'll try my best to get back to you!</p>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-info">
+          <div class="contact-line">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+            </div>
+            <div>
+              <div class="label">Email</div>
+              <div class="value">muhammadd656@gmail.com</div>
+            </div>
+          </div>
+
+          <div class="contact-line">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4V8h4v2"/><circle cx="4" cy="8" r="2"/><path d="M2 12h4v9H2z"/></svg>
+            </div>
+            <div>
+              <div class="label">LinkedIn</div>
+              <div class="value">www.linkedin.com/in/muhammad-daffa-alfiannoor</div>
+            </div>
+          </div>
+
+          <div class="contact-line">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 00-1.3-3.2 4.2 4.2 0 00-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 00-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 00-.1 3.2A4.6 4.6 0 004 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>
+            </div>
+            <div>
+              <div class="label">GitHub</div>
+              <div class="value">https://github.com/DaffaAlfiannoor</div>
+            </div>
+          </div>
+        </div>
+
+        <form class="contact-form" action="#" method="post">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" placeholder="John Doe">
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="john@example.com">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" name="subject" placeholder="Project Inquiry">
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="How can I help you?"></textarea>
+          </div>
+          <button type="submit" class="btn btn-dark">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= Footer ================= -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-copy">
+        <span class="logo">AL<span>.</span></span>
+        <span>&copy; 2026 Muhammad Daffa Alfiannoor.</span>
+      </div>
+      <div class="footer-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="https://www.linkedin.com/in/muhammad-daffa-alfiannoor" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/DaffaAlfiannoor" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
