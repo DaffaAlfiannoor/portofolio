@@ -140,7 +140,7 @@ export const projectsData = {
       title: "RumahKarir",
       description:
         "Identifying Competency Gaps and Personalizing Career Development Plans.",
-      image: "/images/project-rumahkarir.jpg",
+      image: "/images/project-ds-capstone.jpg",
       tags: [
         "Python",
         "React",
