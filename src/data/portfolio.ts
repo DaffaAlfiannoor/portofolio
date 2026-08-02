@@ -50,10 +50,17 @@ export type ContactInfo = {
   iconName: "mail" | "linkedin" | "github";
 };
 
+export type ModuleCertificate = {
+  name: string;
+  issuer: string;
+  pdfUrl: string;
+};
+
 export const navLinks: NavLink[] = [
   { label: "About", href: "#about" },
   { label: "Skills", href: "#skills" },
   { label: "Project", href: "#work" },
+  { label: "Certificate", href: "#certificates" },
   { label: "Experience", href: "#experience" },
   { label: "Contact", href: "#contact" },
 ];
@@ -211,6 +218,84 @@ export const projectsData = {
       comingSoon: true,
     },
   ],
+};
+
+export const certificatesData = {
+  title: "Certificate",
+  subtitle:
+    "Professional certifications earned through intensive learning programs at Dicoding Academy.",
+  certificates: [
+    {
+      name: "Belajar Dasar AI",
+      issuer: "Dicoding",
+      pdfUrl: "/certificates/modul/Belajar%20Dasar%20AI.pdf",
+    },
+    {
+      name: "Belajar Dasar Data Science",
+      issuer: "Dicoding",
+      pdfUrl: "/certificates/modul/Belajar%20Dasar%20Data%20Science.pdf",
+    },
+    {
+      name: "Belajar Dasar Git dengan GitHub",
+      issuer: "Dicoding",
+      pdfUrl: "/certificates/modul/Belajar%20Dasar%20Git%20dengan%20GitHub.pdf",
+    },
+    {
+      name: "Belajar Dasar Structured Query Language (SQL)",
+      issuer: "Dicoding",
+      pdfUrl: "/certificates/modul/Belajar%20Dasar%20Structured%20Query%20Language%20(SQL).pdf",
+    },
+    {
+      name: "Belajar Dasar Visualisasi Data",
+      issuer: "Dicoding",
+      pdfUrl: "/certificates/modul/Belajar%20Dasar%20Visualisasi%20Data.pdf",
+    },
+    {
+      name: "Memulai Pemrograman dengan Python",
+      issuer: "Dicoding",
+      pdfUrl: "/certificates/modul/Memulai%20Pemrograman%20dengan%20Python.pdf",
+    },
+    {
+      name: "Belajar Analisis Data untuk Pemula",
+      issuer: "Dicoding",
+      pdfUrl: "/certificates/modul/Belajar%20Analisis%20Data%20untuk%20Pemula.pdf",
+    },
+    {
+      name: "Belajar Matematika untuk Data Science",
+      issuer: "Dicoding",
+      pdfUrl: "/certificates/modul/Belajar%20Matematika%20untuk%20Data%20Science.pdf",
+    },
+    {
+      name: "Belajar Fundamental Pemrosesan Data",
+      issuer: "Dicoding",
+      pdfUrl: "/certificates/modul/Belajar%20Fundamental%20Pemrosesan%20Data.pdf",
+    },
+    {
+      name: "Belajar Fundamental Analisis Data",
+      issuer: "Dicoding",
+      pdfUrl: "/certificates/modul/Belajar%20Fundamental%20Analisis%20Data.pdf",
+    },
+    {
+      name: "Belajar Penggunaan Generative AI",
+      issuer: "Dicoding",
+      pdfUrl: "/certificates/modul/Belajar%20Penggunaan%20Generative%20AI.pdf",
+    },
+    {
+      name: "Belajar Machine Learning untuk Pemula",
+      issuer: "Dicoding",
+      pdfUrl: "/certificates/modul/Belajar%20Machine%20Learning%20untuk%20Pemula.pdf",
+    },
+    {
+      name: "Belajar Fundamental Deep Learning",
+      issuer: "Dicoding",
+      pdfUrl: "/certificates/modul/Belajar%20Fundamental%20Deep%20Learning.pdf",
+    },
+    {
+      name: "Membangun Sistem Machine Learning",
+      issuer: "Dicoding",
+      pdfUrl: "/certificates/modul/Membangun%20Sistem%20Machine%20Learning.pdf",
+    },
+  ] as ModuleCertificate[],
 };
 
 export const journeyData = {
