@@ -50,12 +50,39 @@ export function Contact() {
     subject: "",
     message: "",
   });
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 3000);
+    setStatus("loading");
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          access_key: "395dcf89-42ba-4129-b6c7-a9bc5a4c9007",
+          name: form.name,
+          email: form.email,
+          subject: form.subject,
+          message: form.message,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setStatus("success");
+        setForm({ name: "", email: "", subject: "", message: "" });
+        setTimeout(() => setStatus("idle"), 4000);
+      } else {
+        setStatus("error");
+        setTimeout(() => setStatus("idle"), 4000);
+      }
+    } catch {
+      setStatus("error");
+      setTimeout(() => setStatus("idle"), 4000);
+    }
   };
 
   return (
@@ -178,9 +205,25 @@ export function Contact() {
 
                   <Button
                     type="submit"
-                    className="w-full bg-navy hover:bg-navy/90 text-white py-6"
+                    disabled={status === "loading"}
+                    className={`w-full py-6 text-white transition-colors ${
+                      status === "success"
+                        ? "bg-green-600 hover:bg-green-600"
+                        : status === "error"
+                          ? "bg-red-600 hover:bg-red-600"
+                          : "bg-navy hover:bg-navy/90"
+                    }`}
                   >
-                    {submitted ? "Message Sent!" : "Send Message"}
+                    {status === "loading" && (
+                      <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                      </svg>
+                    )}
+                    {status === "idle" && "Send Message"}
+                    {status === "loading" && "Sending..."}
+                    {status === "success" && "✓ Message Sent!"}
+                    {status === "error" && "✕ Failed to Send"}
                   </Button>
                 </form>
               </CardContent>
