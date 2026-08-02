@@ -325,7 +325,7 @@ export const journeyData = {
       title: "Data Scientist Cohort",
       organization: "Coding Camp powered by DBS Foundation",
       description:
-        "Gained hands-on experience in data preprocessing, exploratory data analysis, feature engineering, model building, model evaluation, and data visualization using Python and related data science libraries.",
+        "Gained hands-on experience in data preprocessing, exploratory data analysis, feature engineering, model building, model evaluation, and data visualization using Python and related data science libraries. Also served as the team leader for the capstone project, coordinating team members, managing project timelines, and ensuring the successful delivery of the final data science solution.",
       certificates: [
         {
           name: "Coding Camp powered by DBS Foundation Certificate",
