@@ -23,17 +23,7 @@ export function Projects() {
           {projectsData.projects.map((project) => (
             <RevealItem key={project.title}>
               <Card className="overflow-hidden border border-border/25 bg-card hover:shadow-xl hover:-translate-y-1 transition-all duration-300 h-full flex flex-col">
-                {project.comingSoon ? (
-                  <div className="relative aspect-[387/218] bg-bg flex flex-col items-center justify-center gap-4">
-                    <span className="text-sm font-semibold text-navy uppercase tracking-wide">
-                      Coming Soon
-                    </span>
-                    <span className="bg-navy text-white text-xs font-semibold px-5 py-2 rounded-full">
-                      Coming Soon
-                    </span>
-                  </div>
-                ) : (
-                  <div className="relative aspect-[387/218] bg-[#E5E2E1] group overflow-hidden">
+                <div className="relative aspect-[387/218] bg-[#E5E2E1] group overflow-hidden">
                     <Image
                       src={project.image}
                       alt={project.title}
@@ -52,7 +42,6 @@ export function Projects() {
                       </Link>
                     </div>
                   </div>
-                )}
 
                 <CardContent className="p-6 flex flex-col flex-1">
                   <h3 className="text-xl font-bold text-navy leading-tight mb-2">
@@ -76,8 +65,7 @@ export function Projects() {
                     </div>
                   )}
 
-                  {!project.comingSoon && (
-                    <Link
+                  <Link
                       href={project.href || "#contact"}
                       target="_blank"
                       rel="noopener noreferrer"
@@ -86,7 +74,6 @@ export function Projects() {
                       View Case Study
                       <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
                     </Link>
-                  )}
                 </CardContent>
               </Card>
             </RevealItem>
