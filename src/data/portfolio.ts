@@ -210,12 +210,38 @@ export const projectsData = {
       href: "https://github.com/DaffaAlfiannoor/Sentiment-Analysis-on-the-Shopee-App",
     },
     {
-      title: "Coming Soon",
+      title: "Customer Churn Analysis and Prediction",
       description:
-        "A new project is in the works. Stay tuned for updates on this exciting mental health and wellness initiative.",
-      image: "",
-      tags: [],
-      comingSoon: true,
+        "End-to-end machine learning pipeline to analyze customer churn behavior and predict at-risk customers, enabling proactive data-driven retention strategies.",
+      image: "/images/project-churn.png",
+      tags: [
+        "Python",
+        "Pandas",
+        "NumPy",
+        "Scikit-learn",
+        "Matplotlib",
+        "Seaborn",
+        "Classification",
+        "Exploratory Data Analysis (EDA)",
+      ],
+      href: "https://github.com/DaffaAlfiannoor/Customer-Churn-Analysis-and-Prediction",
+    },
+    {
+      title: "Sales & Customer Analysis",
+      description:
+        "Comprehensive sales and customer behavior analysis using RFM segmentation and trend analysis to uncover actionable business insights and identify high-value customer segments.",
+      image: "/images/project-sales.png",
+      tags: [
+        "Python",
+        "Pandas",
+        "NumPy",
+        "Matplotlib",
+        "Seaborn",
+        "RFM Analysis",
+        "Exploratory Data Analysis (EDA)",
+        "Data Visualization",
+      ],
+      href: "https://github.com/DaffaAlfiannoor/sales_customer_analysis",
     },
   ],
 };
