@@ -243,6 +243,27 @@ export const projectsData = {
       ],
       href: "https://github.com/DaffaAlfiannoor/sales_customer_analysis",
     },
+    {
+      title: "Credit Card Fraud Detection",
+      description:
+        "End-to-end machine learning pipeline to detect fraudulent credit card transactions on a highly imbalanced dataset. Applied SMOTE for class balancing, engineered features, and benchmarked five ensemble classifiers — CatBoost, Random Forest, XGBoost, AdaBoost, and LightGBM — using threshold optimization to maximize PR-AUC and ROC-AUC, achieving the best F1-score of 0.843 with CatBoost.",
+      image: "/images/project-fraud-detection.png",
+      tags: [
+        "Python",
+        "Scikit-learn",
+        "CatBoost",
+        "XGBoost",
+        "LightGBM",
+        "SMOTE",
+        "Pandas",
+        "NumPy",
+        "Matplotlib",
+        "Seaborn",
+        "Classification",
+        "Imbalanced Learning",
+      ],
+      href: "https://github.com/DaffaAlfiannoor/Credit-Card-Fraud-Detection",
+    },
   ],
 };
 
