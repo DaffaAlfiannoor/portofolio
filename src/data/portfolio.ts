@@ -1,11 +1,24 @@
+import {
+  Code2,
+  Database,
+  BarChart3,
+  Brain,
+  Cpu,
+  Sigma,
+  Globe,
+  Wrench,
+  type LucideIcon,
+} from "lucide-react";
+
 export type NavLink = {
   label: string;
   href: string;
 };
 
-export type SkillCategory = {
-  category: string;
-  skills: string;
+export type Skill = {
+  icon: LucideIcon;
+  title: string;
+  description: string;
 };
 
 export type Project = {
@@ -68,33 +81,46 @@ export const aboutData = {
   ],
 };
 
-export const skillCategoriesData: SkillCategory[] = [
+export const skillsData: Skill[] = [
   {
-    category: "Languages",
-    skills: "Python, SQL",
+    icon: Code2,
+    title: "Python & SQL",
+    description: "Primary languages for data analysis, ML pipelines, and querying large-scale datasets.",
   },
   {
-    category: "Machine Learning & Deep Learning",
-    skills:
-      "Scikit-learn, TensorFlow/Keras, XGBoost, NLP (IndoBERT, Sastrawi), RandomizedSearchCV, StratifiedKFold",
+    icon: Cpu,
+    title: "Machine Learning",
+    description: "Scikit-learn, XGBoost, TensorFlow/Keras, RandomizedSearchCV, and StratifiedKFold.",
   },
   {
-    category: "Generative AI",
-    skills:
-      "RAG, LLM APIs (OpenAI-compatible), LangChain, Hugging Face (sentence-transformers), ChromaDB",
+    icon: Brain,
+    title: "Generative AI & NLP",
+    description: "RAG, LangChain, ChromaDB, Hugging Face, IndoBERT, and Sastrawi.",
   },
   {
-    category: "Data Analysis & Visualization",
-    skills:
-      "Pandas, NumPy, EDA, Data Wrangling, Statistical Analysis (hypothesis testing, chi-square), RFM Segmentation, K-Means Clustering, CLV Analysis, Matplotlib, Seaborn, PowerBI",
+    icon: BarChart3,
+    title: "Data Analysis & Visualization",
+    description: "Pandas, NumPy, Matplotlib, Seaborn, RFM Segmentation, K-Means, CLV, and PowerBI.",
   },
   {
-    category: "Web Development",
-    skills: "FastAPI, React, Vite, Tailwind CSS",
+    icon: Globe,
+    title: "Web Development",
+    description: "FastAPI, React, Vite, and Tailwind CSS for building full-stack ML applications.",
   },
   {
-    category: "Tools",
-    skills: "Git, Docker, SQLite, PostgreSQL",
+    icon: Database,
+    title: "Statistics",
+    description: "Hypothesis testing, chi-square, and statistical foundations of data science.",
+  },
+  {
+    icon: Wrench,
+    title: "Tools",
+    description: "Git, Docker, SQLite, and PostgreSQL for versioning, containerization, and storage.",
+  },
+  {
+    icon: Sigma,
+    title: "EDA & Feature Engineering",
+    description: "Data wrangling, exploratory analysis, and feature engineering for ML pipelines.",
   },
 ];
 
@@ -144,7 +170,7 @@ export const projectsData = {
       title: "RAG Regulasi QA",
       description:
         "A Retrieval-Augmented Generation (RAG) system for Q&A over Indonesian regulatory documents. Uses LangChain, ChromaDB, and OpenAI-compatible LLMs to enable semantic search and context-aware answers from legal/regulatory texts.",
-      image: "/images/project-ecommerce.png",
+      image: "/images/project-rag-regulasi.png",
       tags: [
         "Python",
         "RAG",
@@ -160,7 +186,7 @@ export const projectsData = {
       title: "Netflix Catalog Analysis",
       description:
         "Exploratory data analysis of the Netflix catalog to uncover content trends, genre distributions, and release patterns over time using Python data analysis tools.",
-      image: "/images/project-ecommerce.png",
+      image: "/images/project-netflix-analysis.png",
       tags: [
         "Python",
         "Pandas",
