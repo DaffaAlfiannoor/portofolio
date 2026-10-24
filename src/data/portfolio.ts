@@ -1,24 +1,11 @@
-import {
-  Code2,
-  Database,
-  BarChart3,
-  Brain,
-  Server,
-  Cpu,
-  Sigma,
-  Table,
-  type LucideIcon,
-} from "lucide-react";
-
 export type NavLink = {
   label: string;
   href: string;
 };
 
-export type Skill = {
-  icon: LucideIcon;
-  title: string;
-  description: string;
+export type SkillCategory = {
+  category: string;
+  skills: string;
 };
 
 export type Project = {
@@ -81,46 +68,33 @@ export const aboutData = {
   ],
 };
 
-export const skillsData: Skill[] = [
+export const skillCategoriesData: SkillCategory[] = [
   {
-    icon: Code2,
-    title: "Python",
-    description: "Primary language for data analysis and ML.",
+    category: "Languages",
+    skills: "Python, SQL",
   },
   {
-    icon: Table,
-    title: "Pandas/NumPy",
-    description: "Efficient data manipulation and numerical computing.",
+    category: "Machine Learning & Deep Learning",
+    skills:
+      "Scikit-learn, TensorFlow/Keras, XGBoost, NLP (IndoBERT, Sastrawi), RandomizedSearchCV, StratifiedKFold",
   },
   {
-    icon: Database,
-    title: "SQL",
-    description: "Querying and managing large-scale datasets.",
+    category: "Generative AI",
+    skills:
+      "RAG, LLM APIs (OpenAI-compatible), LangChain, Hugging Face (sentence-transformers), ChromaDB",
   },
   {
-    icon: BarChart3,
-    title: "Data Visualization",
-    description: "Matplotlib, Seaborn, and Tableau for storytelling.",
+    category: "Data Analysis & Visualization",
+    skills:
+      "Pandas, NumPy, EDA, Data Wrangling, Statistical Analysis (hypothesis testing, chi-square), RFM Segmentation, K-Means Clustering, CLV Analysis, Matplotlib, Seaborn, PowerBI",
   },
   {
-    icon: Brain,
-    title: "TensorFlow/PyTorch",
-    description: "Building and training deep learning models.",
+    category: "Web Development",
+    skills: "FastAPI, React, Vite, Tailwind CSS",
   },
   {
-    icon: Server,
-    title: "Big Data",
-    description: "Working with Spark and cloud-based data warehouses.",
-  },
-  {
-    icon: Cpu,
-    title: "Scikit-learn",
-    description: "Classic machine learning algorithms and preprocessing.",
-  },
-  {
-    icon: Sigma,
-    title: "Statistics",
-    description: "Foundation of data science and hypothesis testing.",
+    category: "Tools",
+    skills: "Git, Docker, SQLite, PostgreSQL",
   },
 ];
 
@@ -140,6 +114,12 @@ export const projectsData = {
         "Matplotlib & Seaborn",
         "Logistic Regression",
         "SVM",
+        "Random Forest",
+        "XGBoost",
+        "FastAPI",
+        "JWT",
+        "SQLite",
+        "Recharts",
       ],
       href: "https://github.com/DaffaAlfiannoor/VitaCheck",
     },
@@ -152,11 +132,45 @@ export const projectsData = {
         "Python",
         "React",
         "NLP",
-        "NER",
+        "IndoBERT",
+        "Sastrawi",
+        "SKKNI/SFIA",
         "Pandas & NumPy",
         "Matplotlib & Seaborn",
       ],
       href: "https://github.com/DaffaAlfiannoor/DS-Capstone",
+    },
+    {
+      title: "RAG Regulasi QA",
+      description:
+        "A Retrieval-Augmented Generation (RAG) system for Q&A over Indonesian regulatory documents. Uses LangChain, ChromaDB, and OpenAI-compatible LLMs to enable semantic search and context-aware answers from legal/regulatory texts.",
+      image: "/images/project-ecommerce.png",
+      tags: [
+        "Python",
+        "RAG",
+        "LangChain",
+        "ChromaDB",
+        "Hugging Face",
+        "LLM",
+        "FastAPI",
+      ],
+      href: "https://github.com/DaffaAlfiannoor/rag-regulasi-qa",
+    },
+    {
+      title: "Netflix Catalog Analysis",
+      description:
+        "Exploratory data analysis of the Netflix catalog to uncover content trends, genre distributions, and release patterns over time using Python data analysis tools.",
+      image: "/images/project-ecommerce.png",
+      tags: [
+        "Python",
+        "Pandas",
+        "NumPy",
+        "Matplotlib",
+        "Seaborn",
+        "EDA",
+        "Data Visualization",
+      ],
+      href: "https://github.com/DaffaAlfiannoor/Netflix-Catalog-Analysis",
     },
     {
       title: "Predictive Lead Scoring Portal for Banking Sales",
@@ -223,11 +237,14 @@ export const projectsData = {
         "Seaborn",
         "Classification",
         "Exploratory Data Analysis (EDA)",
+        "Streamlit",
+        "Gradient Boosting",
+        "RandomizedSearchCV",
       ],
       href: "https://github.com/DaffaAlfiannoor/Customer-Churn-Analysis-and-Prediction",
     },
     {
-      title: "Sales & Customer Analysis",
+      title: "Online Retail Analysis - RFM Segmentation & Customer Lifetime Value",
       description:
         "Comprehensive sales and customer behavior analysis using RFM segmentation and trend analysis to uncover actionable business insights and identify high-value customer segments.",
       image: "/images/project-sales.png",
@@ -238,6 +255,8 @@ export const projectsData = {
         "Matplotlib",
         "Seaborn",
         "RFM Analysis",
+        "K-Means Clustering",
+        "CLV Analysis",
         "Exploratory Data Analysis (EDA)",
         "Data Visualization",
       ],
